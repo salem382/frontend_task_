@@ -27,7 +27,8 @@ export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
             notificationService.showMessage('danger', 'Access forbidden.');
             break;
           case HttpStatusCode.BadRequest:
-            notificationService.showMessage('danger', error.error.message || errorMessage);
+            
+            notificationService.showMessage('danger', error.error.error || errorMessage);
             break;
           case HttpStatusCode.InternalServerError:
             notificationService.showMessage('danger', 'Server error. Please try again later.');
@@ -45,14 +46,8 @@ export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
         }
 
         if (error.status === HttpStatusCode.NotFound) {
-          const mockResponse = {
-            totalCount: 0,
-            totalPages: 0,
-            pageSize: 0,
-            currentPage: 0,
-            data: null
-          };
-          return of(new HttpResponse({ body: mockResponse, status: error.status }));
+          const mockResponse = []
+          return of(new HttpResponse({ body: [], status: error.status }));
         }
       }
 

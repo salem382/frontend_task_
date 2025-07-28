@@ -1,7 +1,6 @@
 export const environment = {
   production: false,
-  baseUrl: 'https://mshaer.co4qu.com/api/',
-  domainUrl: 'https://mshaer.co4qu.com/',
-  keyApiGoogle: 'AIzaSyDnUWZ44e76EzoE9lHEPM-DTmPOQDTl8Rw'
+  baseUrl: 'https://6887d3b1adf0e59551b85bdb.mockapi.io/API/V1/',
+  domainUrl: 'https://6887d3b1adf0e59551b85bdb.mockapi.io/API/V1/',
 };
 

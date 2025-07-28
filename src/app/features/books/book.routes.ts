@@ -7,11 +7,11 @@ export const bookRoutes: Routes = [
     },
     {
         path: 'add',
-        loadComponent: () => import('./form/form.component').then(m => m.FormComponent),
+        loadComponent: () => import('./bookform/bookform.component').then(m => m.BookformComponent),
     },
     {
         path: 'edit/:id',
-        loadComponent: () => import('./form/form.component').then(m => m.FormComponent),
+        loadComponent: () => import('./bookform/bookform.component').then(m => m.BookformComponent),
     }
 ];
 

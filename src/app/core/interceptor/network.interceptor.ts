@@ -1,34 +1,20 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-  HttpErrorResponse,
-} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
 import { AlertService } from '../services/alert.service';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
-@Injectable()
-export class NetworkInterceptor implements HttpInterceptor {
-  constructor(
-    private alertService : AlertService
-  ) {}
+export const networkInterceptor: HttpInterceptorFn = (req, next) => {
+  const alertService = inject(AlertService);
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(
-      catchError((error: HttpErrorResponse) => {
-        if (!navigator.onLine) {
-          retry(3), // Retry failed requests up to 3 times
-          // Handle offline error
-          this.alertService.showMessage('danger', 'No Internet Connection');
-        }
-        return throwError(() => error); // Rethrow the error
-      })
-    );
-  }
-}
+  return next(req).pipe(
+    retry(3), // Retry failed requests up to 3 times
+    catchError((error: HttpErrorResponse) => {
+      if (!navigator.onLine) {
+        // Handle offline error
+        alertService.showMessage('danger', 'No Internet Connection');
+      }
+      return throwError(() => error); // Rethrow the error
+    })
+  );
+};

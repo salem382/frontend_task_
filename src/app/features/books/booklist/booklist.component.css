@@ -97,3 +97,140 @@
 .add-to-cart-btn:hover {
   background-color: #669BBC;
 }
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 8px;
+  background-color: rgba(102, 155, 188, 0.05);
+  border: 2px dashed rgba(0, 48, 73, 0.2);
+  margin: 2rem 0;
+}
+
+.empty-state-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.empty-state-title {
+  color: #003049;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-message {
+  color: #6c757d;
+  font-size: 1rem;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state-button {
+  background-color: #003049;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.empty-state-button:hover {
+  background-color: #00223a;
+  transform: translateY(-2px);
+}
+
+.empty-state-button svg {
+  width: 18px;
+  height: 18px;
+}
+/* Add these styles to your component's CSS file */
+
+.controls-container {
+  margin-bottom: 2rem;
+}
+
+.search-sort-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #669BBC;
+  box-shadow: 0 0 0 2px rgba(102, 155, 188, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6c757d;
+}
+
+.sort-dropdown {
+  position: relative;
+  min-width: 200px;
+}
+
+.sort-dropdown select {
+  width: 100%;
+  padding: 0.75rem 2rem 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  appearance: none;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-dropdown select:focus {
+  outline: none;
+  border-color: #669BBC;
+  box-shadow: 0 0 0 2px rgba(102, 155, 188, 0.2);
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #6c757d;
+  pointer-events: none;
+}

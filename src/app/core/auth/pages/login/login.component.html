@@ -1,3 +1,7 @@
+
+<button [routerLink]="'/features/book/list'">go to spcific path</button>
+
+
 <div class="full-page-login">
   <div class="login-background">
     <div class="background-shapes">
@@ -9,6 +13,7 @@
   
   <div class="login-content">
     <div class="login-card">
+
       <div class="login-header">
         <div class="logo-circle">
           <svg viewBox="0 0 24 24">
@@ -19,23 +24,43 @@
         <p>Sign in to continue to your account</p>
       </div>
       
-      <form class="login-form" (ngSubmit)="onSubmit()">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <div class="input-wrapper">
-            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <input formControlName="email" type="email" id="email" name="email" placeholder="Email Address" required>
             <svg class="input-icon" viewBox="0 0 24 24">
               <path fill="#003049" d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
             </svg>
           </div>
+          @if (loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)) {
+            <div class="error-message">
+              @if (loginForm.get('email')?.errors?.['required']) {
+                <div>Email is required</div>
+              }
+              @if (loginForm.get('email')?.errors?.['email']) {
+                <div>Please enter a valid email</div>
+              }
+            </div>
+          }
         </div>
         
         <div class="form-group">
           <div class="input-wrapper">
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input formControlName="password" type="password" id="password" name="password" placeholder="Password" required>
             <svg class="input-icon" viewBox="0 0 24 24">
               <path fill="#003049" d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
             </svg>
           </div>
+          @if (loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)) {
+            <div class="error-message">
+              @if (loginForm.get('password')?.errors?.['required']) {
+                <div>Password is required</div>
+              }
+              @if (loginForm.get('password')?.errors?.['minlength']) {
+                <div>Password must be at least 6 characters</div>
+              }
+            </div>
+          }
         </div>
         
         <div class="form-options">
@@ -46,7 +71,7 @@
           <a href="#" class="forgot-password">Forgot password?</a>
         </div>
         
-        <button type="submit" class="login-button">Login</button>
+        <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
         
         <div class="divider">
           <span>OR</span>
@@ -71,6 +96,7 @@
           Don't have an account? <a href="#">Sign up</a>
         </div>
       </form>
+
     </div>
   </div>
 </div>

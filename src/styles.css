@@ -2,3 +2,47 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.error-message {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  color: #dc2626; /* red-600 */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* For dark mode support */
+.dark .error-message {
+  color: #f87171; /* red-400 */
+}
+
+/* Optional animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* If you want to style individual error items */
+.error-message div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+/* Optional icon styling */
+.error-message div::before {
+  content: "⚠";
+  font-size: 1rem;
+}
+.menu-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}

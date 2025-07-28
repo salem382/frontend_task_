@@ -1,1 +1,58 @@
-<p>booklist works!</p>
+<div class="book-list-container">
+  <h1 class="list-title">Book Collection</h1>
+
+  <div class="container">
+    <div class="d-flex justify-content-start my-4">
+      <button class="add-to-cart-btn">Add Book</button>
+    </div>
+     <div class="books-grid">
+      @for (book of books; track book.title) {
+        <div class="book-card">
+          <div class="book-header">
+            <div>
+                <h2 class="book-title mb-4">{{ book.title }}</h2>
+                <span class="book-category">{{ book.category }}</span>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button mat-button [matMenuTriggerFor]="menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Top dot -->
+                  <circle cx="12" cy="6" r="2" fill="currentColor"/>
+                  
+                  <!-- Middle dot -->
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                  
+                  <!-- Bottom dot -->
+                  <circle cx="12" cy="18" r="2" fill="currentColor"/>
+                </svg>
+              </button>
+             <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <svg class="menu-icon" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                </svg>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <svg class="menu-icon" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/>
+                </svg>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+            </div>
+          </div>
+          
+          <p class="book-author">By {{ book.author }}</p>
+          
+          <p class="book-description">{{ book.description }}</p>
+          
+          <div class="book-footer">
+            <span class="book-price">${{ book.price.toFixed(2) }}</span>
+          </div>
+        </div>
+      }
+  </div>
+  </div>
+
+</div>

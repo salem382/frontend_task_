@@ -1,0 +1,99 @@
+/* Main container */
+.book-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.list-title {
+  color: #003049;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* Grid layout */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Book card */
+.book-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+
+
+/* Card elements */
+.book-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.book-title {
+  color: #003049;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.book-category {
+  background-color: #669BBC;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.book-author {
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.book-description {
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer with price and button */
+.book-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-price {
+  color: #003049;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.add-to-cart-btn {
+  background-color: #003049;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #669BBC;
+}

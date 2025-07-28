@@ -1,303 +1,234 @@
-.full-page-login {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.login-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #669bbc, #003049);
-  z-index: 1;
-}
-
-.background-shapes {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  background: white;
-}
-
-.shape-1 {
-  width: 600px;
-  height: 600px;
-  top: -300px;
-  left: -300px;
-}
-
-.shape-2 {
-  width: 400px;
-  height: 400px;
-  bottom: -200px;
-  right: -100px;
-}
-
-.shape-3 {
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  right: 100px;
-}
-
-.login-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
-/* MODIFIED: Increased max-width from 450px to 600px */
-.login-card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0, 48, 73, 0.2);
-  width: 100%;
-  max-width: 600px; /* Changed from 450px */
-  padding: 50px; /* Increased padding */
+/* Main container */
+.book-list-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.login-header {
-  text-align: center;
-  margin-bottom: 40px; /* Increased margin */
-}
-
-.logo-circle {
-  width: 100px; /* Increased size */
-  height: 100px; /* Increased size */
-  background: linear-gradient(135deg, #669bbc, #003049);
-  border-radius: 50%;
-  margin: 0 auto 25px; /* Increased margin */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(102, 155, 188, 0.3);
-}
-
-.logo-circle svg {
-  width: 50px; /* Increased size */
-  height: 50px; /* Increased size */
-}
-
-.login-header h1 {
+/* Title */
+.list-title {
   color: #003049;
-  margin-bottom: 10px; /* Increased margin */
-  font-size: 32px; /* Increased font size */
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 
-.login-header p {
-  color: #666;
-  font-size: 18px; /* Increased font size */
+/* Add Book Button */
+.add-book-btn {
+  background-color: #669BBC;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
-.login-form .form-group {
-  margin-bottom: 25px; /* Increased margin */
+.add-book-btn:hover {
+  background-color: #003049;
 }
 
-.input-wrapper {
-  position: relative;
+/* Book Form */
+.book-form {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.input-wrapper svg {
-  position: absolute;
-  left: 20px; /* Increased spacing */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px; /* Increased size */
-  height: 24px; /* Increased size */
+.book-form h2 {
+  color: #003049;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-.login-form input {
-  width: 87%;
-  padding: 18px 20px 18px 60px; /* Increased padding */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #003049;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 10px; /* Slightly larger radius */
-  font-size: 18px; /* Increased font size */
-  transition: all 0.3s;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.login-form input:focus {
-  border-color: #669bbc;
-  box-shadow: 0 0 0 4px rgba(102, 155, 188, 0.2); /* Increased shadow */
-  outline: none;
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
-.form-options {
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.save-btn {
+  background-color: #669BBC;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #003049;
+}
+
+.cancel-btn {
+  background-color: #f8f9fa;
+  color: #003049;
+  border: 1px solid #003049;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #e9ecef;
+}
+
+/* Grid layout */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Book card */
+.book-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card elements */
+.book-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.book-title {
+  color: #003049;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+
+.book-category {
+  background-color: #669BBC;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.book-author {
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.book-description {
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+/* Footer with price and actions */
+.book-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 25px 0; /* Increased margin */
-  font-size: 16px; /* Increased font size */
+  margin-top: auto;
 }
 
-.remember-me {
-  display: flex;
-  align-items: center;
-  color: #666;
-  cursor: pointer;
-}
-
-.remember-me input {
-  margin-right: 10px; /* Increased spacing */
-  width: 18px; /* Increased size */
-  height: 18px; /* Increased size */
-  accent-color: #669bbc;
-}
-
-.forgot-password {
-  color: #669bbc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.forgot-password:hover {
+.book-price {
   color: #003049;
-  text-decoration: underline;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
-.login-button {
-  width: 100%;
-  padding: 18px; /* Increased padding */
-  background: linear-gradient(135deg, #669bbc, #003049);
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn {
+  background-color: #669BBC;
   color: white;
   border: none;
-  border-radius: 10px; /* Slightly larger radius */
-  font-size: 18px; /* Increased font size */
-  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s;
-  margin-bottom: 25px; /* Increased margin */
-}
-
-.login-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(102, 155, 188, 0.4); /* Increased shadow */
-}
-
-.divider {
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
-  margin: 30px 0; /* Increased margin */
-  color: #999;
-  font-size: 16px; /* Increased font size */
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #ddd;
-  margin: 0 15px; /* Increased spacing */
+.edit-btn:hover {
+  background-color: #003049;
 }
 
-.social-login {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Increased gap */
-  margin-bottom: 25px; /* Increased margin */
-}
-
-.social-button {
-  width: 100%;
-  padding: 15px; /* Increased padding */
-  border-radius: 10px; /* Slightly larger radius */
-  font-size: 16px; /* Increased font size */
-  font-weight: 500;
+.delete-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s;
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px; /* Increased gap */
-  border: 1px solid #ddd;
-  background: white;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
-.social-button svg {
-  width: 22px; /* Increased size */
-  height: 22px; /* Increased size */
+.delete-btn:hover {
+  background-color: #c1121f;
 }
 
-.social-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Increased shadow */
-}
-
-.signup-link {
-  text-align: center;
-  font-size: 16px; /* Increased font size */
-  color: #666;
-}
-
-.signup-link a {
-  color: #669bbc;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.login-footer {
-  margin-top: 50px; /* Increased margin */
-  text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 16px; /* Increased font size */
-}
-
-.login-footer p {
-  margin-bottom: 15px; /* Increased margin */
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* Increased gap */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .login-content {
-    padding: 30px;
-  }
-  
-  .login-card {
-    padding: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-card {
-    padding: 30px 25px;
-    max-width: 100%;
-  }
-  
-  .login-header h1 {
-    font-size: 28px;
-  }
-  
-  .login-form input {
-    padding: 15px 15px 15px 50px;
-    font-size: 16px;
-  }
-  
-  .input-wrapper svg {
-    width: 20px;
-    height: 20px;
-    left: 15px;
-  }
+/* Font Awesome icons */
+.fas {
+  font-size: 0.875rem;
 }

@@ -1,0 +1,45 @@
+/* src/app/shared/components/not-found/not-found.component.css */
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.not-found-content {
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.not-found-content h1 {
+  font-size: 6rem;
+  margin: 0;
+  color: #003049;
+}
+
+.not-found-content h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  color: #669BBC;
+}
+
+.not-found-content p {
+  margin: 1.5rem 0;
+  color: #6c757d;
+}
+
+.home-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #003049;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.home-link:hover {
+  background-color: #00223a;
+}

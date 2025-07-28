@@ -10,6 +10,10 @@ export const routes: Routes = [
         path: 'features',
         canActivate: [authGuard], 
         loadChildren: () => import('./features/features.routes').then(m => m.featuresRoutes)
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./shared/not-found/not-found.component').then(m => m.NotFoundComponent)
     }
 ];
 
